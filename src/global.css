@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@400&family=Spartan:wght@400;700&display=swap");
+
+:root {
+  --text: hsl(0, 0%, 100%);
+  --white-opaque: hsla(0, 0%, 100%, 0.2);
+  --background: hsl(240, 67%, 8%);
+  --btn-hover: hsl(0, 0%, 85%);
+  --mercury: hsl(194, 48%, 49%);
+  --venus: hsl(33, 82%, 61%);
+  --earth: hsl(263, 67%, 51%);
+  --mars: hsl(10, 63%, 51%);
+  --jupiter: hsl(2, 68%, 53%);
+  --saturn: hsl(17, 73%, 46%);
+  --uranus: hsl(169, 73%, 44%);
+  --neptune: hsl(222, 87%, 56%);
+  --nav-mercury: hsl(196, 83%, 93%);
+  --nav-venus: hsl(39, 88%, 73%);
+  --nav-earth: hsl(238, 99%, 66%);
+  --nav-mars: hsl(12, 100%, 64%);
+  --nav-jupiter: hsl(27, 75%, 70%);
+  --nav-saturn: hsl(40, 96%, 70%);
+  --nav-uranus: hsl(168, 82%, 67%);
+  --nav-neptune: hsl(222, 95%, 63%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: unset;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+body {
+  background-color: var(--background);
+  background-image: url("assets/background-stars.svg");
+  background-position: -318px -92px;
+  background-size: 1010px 851px;
+  color: var(--text);
+  font-family: "Spartan", sans-serif;
+  font-size: 0.6875rem;
+  line-height: 1.375rem;
+  min-height: 100vh;
+}
+
+h1,
+h2 {
+  font-family: "Antonio", sans-serif;
+}
+
+@media (min-width: 678px) {
+  body {
+    background-position: -382px -134px;
+    background-size: unset;
+  }
+}
+
+@media (min-width: 1000px) {
+  body {
+    background-position: -46px -134px;
+    font-size: 0.875rem;
+    line-height: 1.5625rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
