@@ -5,7 +5,7 @@
   let wideScreen;
   let outerWidth = 0;
 
-  $: if (outerWidth >= 1000) {
+  $: if (outerWidth >= 768) {
     wideScreen = true;
   } else {
     wideScreen = false;
@@ -22,6 +22,7 @@
       on:click={() => {
         nav = false;
       }}
+      tabindex={!wideScreen && !nav ? "-1" : "0"}
     >
       <div class="decoration" style:background-color={wideScreen ? `var(--${planet.toLowerCase()})` : `var(--nav-${planet.toLowerCase()})`} />
       {planet}</a
@@ -33,9 +34,11 @@
   nav {
     display: flex;
   }
+
   a {
     font-weight: 700;
     line-height: 1.5625rem;
+    text-decoration: unset;
     text-transform: uppercase;
   }
 
@@ -43,12 +46,13 @@
     nav {
       background-color: var(--background);
       flex-direction: column;
+      min-height: 100vh;
+      padding: 1.5rem;
+      width: 100%;
       position: absolute;
       left: -100%;
       transition: left 0.3s ease-in-out;
-      min-height: 100vh;
-      width: 100%;
-      padding: 1.5rem;
+      z-index: 2;
     }
     .nav {
       left: 0;
@@ -62,19 +66,19 @@
     }
 
     a {
-      font-size: 0.9375rem;
-      letter-spacing: 1.36364px;
       background-image: url("/assets/icon-chevron.svg");
       background-repeat: no-repeat;
       background-position: center right;
-      padding: 1.25rem 0;
       display: flex;
       align-items: center;
       gap: 25px;
+      font-size: 0.9375rem;
+      letter-spacing: 1.36364px;
+      padding: 1.25rem 0;
     }
 
     a + a {
-      border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+      border-top: 1px solid hsla(var(--white-opaque) / 0.1);
     }
   }
 

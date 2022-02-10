@@ -2,7 +2,7 @@
 
 :root {
   --text: hsl(0, 0%, 100%);
-  --white-opaque: hsla(0, 0%, 100%, 0.2);
+  --white-opaque: 0 0% 100%;
   --background: hsl(240, 67%, 8%);
   --btn-hover: hsl(0, 0%, 85%);
   --mercury: hsl(194, 48%, 49%);
@@ -31,7 +31,6 @@
 }
 a {
   color: inherit;
-  text-decoration: unset;
 }
 
 ul {

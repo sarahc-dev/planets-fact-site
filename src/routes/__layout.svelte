@@ -22,8 +22,3 @@
 
 <Header {planets} />
 <slot />
-
-<!-- <p>Creating nav from data</p>
-{#each planets as planet}
-  <li>{planet.name}</li>
-{/each} -->

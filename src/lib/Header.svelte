@@ -3,7 +3,6 @@
   import Nav from "$lib/Navigation.svelte";
 
   let open = false;
-  //   $: console.log(open);
 
   export let planets;
 </script>
@@ -18,7 +17,7 @@
 
 <style>
   header {
-    border-bottom: 1px solid var(--white-opaque);
+    border-bottom: 1px solid hsl(var(--white-opaque) / 0.2);
   }
 
   .container {
@@ -46,7 +45,7 @@
       display: flex;
       align-items: end;
       justify-content: space-between;
-      padding: 1.375rem 2rem 1.6875rem;
+      padding: 1.375rem 2.5625rem 1.6875rem 2rem;
     }
 
     .container {
