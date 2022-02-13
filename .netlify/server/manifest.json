@@ -1,0 +1,78 @@
+{
+  ".svelte-kit/build/app.js": {
+    "file": "app.js",
+    "src": ".svelte-kit/build/app.js",
+    "isEntry": true,
+    "imports": [
+      "_index-8bee4077.js"
+    ]
+  },
+  "src/routes/api/planets.js": {
+    "file": "entries/endpoints/api/planets.js",
+    "src": "src/routes/api/planets.js",
+    "isEntry": true,
+    "imports": [
+      "_data-0553b183.js"
+    ]
+  },
+  "src/routes/api/[planet].js": {
+    "file": "entries/endpoints/api/_planet_.js",
+    "src": "src/routes/api/[planet].js",
+    "isEntry": true,
+    "imports": [
+      "_data-0553b183.js"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "entries/pages/__layout.svelte.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-8bee4077.js",
+      "_store-408058b2.js"
+    ],
+    "css": [
+      "assets/entries/pages/__layout.svelte-e6b59277.css"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "entries/pages/error.svelte.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-8bee4077.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "entries/pages/index.svelte.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-8bee4077.js"
+    ]
+  },
+  "src/routes/[planet].svelte": {
+    "file": "entries/pages/_planet_.svelte.js",
+    "src": "src/routes/[planet].svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-8bee4077.js",
+      "_store-408058b2.js"
+    ],
+    "css": [
+      "assets/entries/pages/_planet_.svelte-599985c8.css"
+    ]
+  },
+  "_index-8bee4077.js": {
+    "file": "chunks/index-8bee4077.js"
+  },
+  "_data-0553b183.js": {
+    "file": "chunks/data-0553b183.js"
+  },
+  "_store-408058b2.js": {
+    "file": "chunks/store-408058b2.js",
+    "imports": [
+      "_index-8bee4077.js"
+    ]
+  }
+}
