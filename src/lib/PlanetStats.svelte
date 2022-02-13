@@ -49,6 +49,9 @@
     font-weight: 700;
     letter-spacing: 0.727273px;
     line-height: 1rem;
+  }
+
+  .description {
     opacity: 0.5;
   }
 
