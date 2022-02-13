@@ -5,24 +5,24 @@
   export let temp;
 </script>
 
-<section class="stats">
+<div class="stats">
   <div class="box">
-    <h3 class="description">Rotation time</h3>
+    <p class="description">Rotation time</p>
     <p class="stat">{rotation}</p>
   </div>
   <div class="box">
-    <h3 class="description">Revolution time</h3>
+    <p class="description">Revolution time</p>
     <p class="stat">{revolution}</p>
   </div>
   <div class="box">
-    <h3 class="description">Radius</h3>
+    <p class="description">Radius</p>
     <p class="stat">{radius}</p>
   </div>
   <div class="box">
-    <h3 class="description">Average Temp.</h3>
+    <p class="description">Average Temp.</p>
     <p class="stat">{temp}</p>
   </div>
-</section>
+</div>
 
 <style>
   .stats {
@@ -44,7 +44,7 @@
     margin-top: 0.5rem;
   }
 
-  h3 {
+  p {
     font-size: 0.5rem;
     font-weight: 700;
     letter-spacing: 0.727273px;
