@@ -10,10 +10,10 @@
 </script>
 
 <script>
-  export let planets;
-  //   console.log(planets);
   import "../global.css";
   import Header from "$lib/Header.svelte";
+
+  export let planets;
 </script>
 
 <svelte:head>

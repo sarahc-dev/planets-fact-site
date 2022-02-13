@@ -29,8 +29,14 @@
   box-sizing: border-box;
   margin: 0;
 }
+
 a {
   color: inherit;
+}
+
+a:focus {
+  outline: 2px solid white;
+  outline-offset: 4px;
 }
 
 ul {

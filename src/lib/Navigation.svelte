@@ -1,6 +1,6 @@
 <script>
+  import { menuOpen } from "./store";
   export let planets;
-  export let nav = false;
 
   let wideScreen;
   let outerWidth = 0;
@@ -14,15 +14,16 @@
 
 <svelte:window bind:outerWidth />
 
-<nav id="primary-nav" class:nav>
+<nav id="primary-nav" class={$menuOpen ? "open" : ""}>
   {#each planets as planet}
     <a
       sveltekit:prefetch
       href={`/${planet.toLowerCase()}`}
-      on:click={() => {
-        nav = false;
-      }}
-      tabindex={!wideScreen && !nav ? "-1" : "0"}
+      on:click={() =>
+        menuOpen.update((status) => {
+          return !status;
+        })}
+      tabindex={!wideScreen && !$menuOpen ? "-1" : "0"}
     >
       <div class="decoration" style:background-color={wideScreen ? `var(--${planet.toLowerCase()})` : `var(--nav-${planet.toLowerCase()})`} />
       {planet}</a
@@ -54,7 +55,7 @@
       transition: left 0.3s ease-in-out;
       z-index: 2;
     }
-    .nav {
+    .open {
       left: 0;
     }
 

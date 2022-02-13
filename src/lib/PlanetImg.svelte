@@ -1,18 +1,21 @@
 <script>
+  import { slide } from "svelte/transition";
   export let images;
   export let name;
-  export let current;
+  export let currentTab;
 </script>
 
 <section>
-  {#if current === "structure"}
-    <img class={name.toLowerCase()} height="256" width="256" src={images.internal} alt={`${name} - internal`} />
-  {:else if current === "surface"}
-    <img class={name.toLowerCase()} height="256" width="256" src={images.planet} alt={name} />
-    <img class="geology" src={images.geology} alt={`${name} - geology`} />
-  {:else}
-    <img class={name.toLowerCase()} height="256" width="256" src={images.planet} alt={name} />
-  {/if}
+  {#key name}
+    {#if currentTab === 2}
+      <img in:slide class={name.toLowerCase()} height="256" width="256" src={images.internal} alt={`${name} - internal`} />
+    {:else if currentTab === 3}
+      <img in:slide class={name.toLowerCase()} height="256" width="256" src={images.planet} alt={name} />
+      <img class="geology" src={images.geology} alt={`${name} - geology`} />
+    {:else}
+      <img in:slide class={name.toLowerCase()} height="256" width="256" src={images.planet} alt={name} />
+    {/if}
+  {/key}
 </section>
 
 <style>
@@ -81,6 +84,7 @@
 
     .geology {
       width: 103.25px;
+      bottom: 2vw;
     }
 
     .mercury {
@@ -115,15 +119,20 @@
     }
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1250px) {
     section {
       height: 46.25626vw;
       width: 46.25626vw;
+      max-width: 800px;
+      max-height: 800px;
+      margin: 69.95px auto 17.95px;
       grid-row: 1 / 3;
+      grid-column: 1 / 2;
     }
 
     .geology {
       width: 163px;
+      bottom: 3.6vw;
     }
 
     .mercury {

@@ -6,7 +6,6 @@ export function get() {
   data.forEach((planet) => {
     planets.push(planet.name);
   });
-  //   console.log(planets);
 
   return {
     body: planets,

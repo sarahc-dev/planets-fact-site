@@ -68,7 +68,7 @@
       display: flex;
       justify-content: space-between;
       gap: 1rem;
-      padding: 1.625rem 2.5rem 2.25rem 2.4375rem;
+      padding: 1.625rem 2.5rem 2.25rem;
     }
 
     .box {
@@ -114,7 +114,7 @@
 
   @media (min-width: 1250px) {
     .stats {
-      padding: 5.4375rem 10.3125rem 3.5rem;
+      padding: 0 10.3125rem 3.5rem;
     }
   }
 </style>

@@ -1,47 +1,79 @@
 <script>
   export let planet;
   export let wideScreen;
-  export let current = "overview";
+  export let currentTab = 1;
+
+  let newIndex;
+
+  function changeTabFocus(e) {
+    const keydownUp = 38;
+    const keydownDown = 40;
+
+    if (e.keyCode !== keydownUp && e.keyCode !== keydownDown) return;
+
+    const current = document.activeElement;
+    const listItems = [...document.getElementsByTagName("li")];
+    const currentIndex = listItems.indexOf(current);
+
+    if (e.keyCode === keydownUp) {
+      newIndex = (currentIndex + listItems.length - 1) % listItems.length;
+    } else if (e.keyCode === keydownDown) {
+      newIndex = (currentIndex + 1) % listItems.length;
+    }
+
+    current.blur();
+    listItems[newIndex].focus();
+  }
+
+  function selectTab(e) {
+    // when enter key is pressed
+    if (e.keyCode === 13) {
+      currentTab = newIndex + 1;
+    }
+  }
 </script>
 
 <section>
-  <ul role="tablist">
+  <ul role="tablist" on:keydown={changeTabFocus}>
     <li
-      class={current === "overview" ? "active" : ""}
+      class={currentTab === 1 ? "active" : ""}
       style:border-color={`var(--${planet.toLowerCase()})`}
-      style:background-color={current === "overview" && wideScreen ? `var(--${planet.toLowerCase()})` : "transparent"}
-      on:click={() => (current = "overview")}
+      style:background-color={currentTab === 1 && wideScreen ? `var(--${planet.toLowerCase()})` : "transparent"}
+      on:click={() => (currentTab = 1)}
+      on:keydown={selectTab}
       role="tab"
-      tabindex="0"
+      tabindex={currentTab === 1 ? 0 : -1}
       aria-controls="overview-tab"
-      aria-selected={current === "overview" ? true : false}
+      aria-selected={currentTab === 1 ? true : false}
     >
       <span aria-hidden="true" class="number">01</span>
       Overview
     </li>
     <li
-      class={current === "structure" ? "active" : ""}
+      class={currentTab === 2 ? "active" : ""}
       style:border-color={`var(--${planet.toLowerCase()})`}
-      style:background-color={current === "structure" && wideScreen ? `var(--${planet.toLowerCase()})` : "transparent"}
-      on:click={() => (current = "structure")}
+      style:background-color={currentTab === 2 && wideScreen ? `var(--${planet.toLowerCase()})` : "transparent"}
+      on:click={() => (currentTab = 2)}
+      on:keydown={selectTab}
       role="tab"
-      tabindex="-1"
+      tabindex={currentTab === 2 ? 0 : -1}
       aria-controls="structure-tab"
-      aria-selected={current === "structure" ? true : false}
+      aria-selected={currentTab === 2 ? true : false}
     >
       <span aria-hidden="true" class="number">02</span>
       <span class="text">Internal </span>
       Structure
     </li>
     <li
-      class={current === "surface" ? "active" : ""}
+      class={currentTab === 3 ? "active" : ""}
       style:border-color={`var(--${planet.toLowerCase()})`}
-      style:background-color={current === "surface" && wideScreen ? `var(--${planet.toLowerCase()})` : "transparent"}
-      on:click={() => (current = "surface")}
+      style:background-color={currentTab === 3 && wideScreen ? `var(--${planet.toLowerCase()})` : "transparent"}
+      on:click={() => (currentTab = 3)}
+      on:keydown={selectTab}
       role="tab"
-      tabindex="-1"
+      tabindex={currentTab === 3 ? 0 : -1}
       aria-controls="surface-tab"
-      aria-selected={current === "surface" ? true : false}
+      aria-selected={currentTab === 3 ? true : false}
     >
       <span aria-hidden="true" class="number">03</span>
       Surface
@@ -71,6 +103,15 @@
     line-height: 0.625rem;
     text-transform: uppercase;
     padding: 0 4px 17px;
+    cursor: pointer;
+  }
+
+  li:hover:not(.active) {
+    background-color: hsl(0, 0%, 85%, 0.2) !important;
+  }
+
+  li:focus-visible {
+    outline-offset: 4px;
   }
 
   .number,
@@ -81,6 +122,7 @@
   .active {
     border-bottom: 4px solid;
     color: var(--text);
+    outline: none;
   }
 
   @media (min-width: 768px) {
@@ -91,22 +133,22 @@
     ul {
       display: block;
       max-width: unset;
-      padding: 3.5rem 2.5rem 0;
+      padding: 3.5rem 2.5rem 0 0;
     }
 
     li {
       color: var(--text);
       line-height: 1.5625rem;
       outline: 1px solid hsl(var(--white-opaque) / 0.2);
-      padding: 0.5rem 1.25rem;
+      padding: 0.5rem 1.25rem 0.4375rem;
     }
 
     li + li {
       margin-top: 1rem;
     }
 
-    li + .active {
-      outline: none;
+    li:focus-visible {
+      outline: 2px solid white;
     }
 
     .number,
@@ -120,15 +162,25 @@
     }
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1250px) {
     section {
       grid-row: 2;
       grid-column: 2;
     }
 
+    ul {
+      padding: 0 10.3125rem 2rem 0;
+    }
+
     li {
       font-size: 0.75rem;
       letter-spacing: 2.57143px;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    li {
+      padding: 0.75rem 1.75rem 0.6875rem;
     }
   }
 </style>

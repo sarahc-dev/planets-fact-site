@@ -2,17 +2,15 @@
   import Button from "$lib/MenuBtn.svelte";
   import Nav from "$lib/Navigation.svelte";
 
-  let open = false;
-
   export let planets;
 </script>
 
 <header>
   <div class="container">
     <h2>The planets</h2>
-    <Button bind:open />
+    <Button />
   </div>
-  <Nav bind:nav={open} {planets} />
+  <Nav {planets} />
 </header>
 
 <style>

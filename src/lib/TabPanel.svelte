@@ -1,21 +1,51 @@
 <script>
+  import { fly } from "svelte/transition";
+
   export let name;
   export let overview;
   export let structure;
   export let geology;
-  export let current;
-
-  // Need to get the keyboard toggle working
+  export let currentTab;
 </script>
 
 <section>
   <h1>{name}</h1>
 
-  {#if current === "structure"}
-    <article id="structure-tab">
-      <p>{structure.content}</p>
-      <p class="source">
-        Source : <a href={structure.source} target="_blank">Wikipedia </a>
+  {#key name}
+    {#if currentTab === 2}
+      <article in:fly={{ x: 100 }} id="structure-tab">
+        <p>{structure.content}</p>
+        <p class="source">
+          Source : <a href={structure.source} target="_blank">Wikipedia </a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+            ><path
+              fill="#FFF"
+              d="M11.34.66C10.9.22 10.37 0 9.75 0h-7.5C1.63 0 1.1.22.66.66.22 1.1 0 1.63 0 2.25v7.5c0 .62.22 1.15.66 1.59.44.44.97.66 1.59.66h7.5c.62 0 1.15-.22 1.59-.66.44-.44.66-.97.66-1.59v-7.5c0-.62-.22-1.15-.66-1.59zM10 6.25a.467.467 0 01-.305.46.544.544 0 01-.195.04.465.465 0 01-.352-.149L8.023 5.476 3.852 9.648a.481.481 0 01-.352.149.48.48 0 01-.352-.149l-.796-.797a.48.48 0 01-.149-.351.48.48 0 01.149-.352l4.172-4.172-1.125-1.125c-.162-.15-.198-.333-.11-.546A.467.467 0 015.75 2H9.5c.135 0 .253.05.352.148A.48.48 0 0110 2.5v3.75z"
+              opacity=".5"
+            /></svg
+          >
+        </p>
+      </article>
+    {:else if currentTab === 3}
+      <article in:fly={{ x: 100 }} id="surface-tab">
+        <p>{geology.content}</p>
+        <p class="source">
+          Source : <a href={geology.source} target="_blank">Wikipedia </a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+            ><path
+              fill="#FFF"
+              d="M11.34.66C10.9.22 10.37 0 9.75 0h-7.5C1.63 0 1.1.22.66.66.22 1.1 0 1.63 0 2.25v7.5c0 .62.22 1.15.66 1.59.44.44.97.66 1.59.66h7.5c.62 0 1.15-.22 1.59-.66.44-.44.66-.97.66-1.59v-7.5c0-.62-.22-1.15-.66-1.59zM10 6.25a.467.467 0 01-.305.46.544.544 0 01-.195.04.465.465 0 01-.352-.149L8.023 5.476 3.852 9.648a.481.481 0 01-.352.149.48.48 0 01-.352-.149l-.796-.797a.48.48 0 01-.149-.351.48.48 0 01.149-.352l4.172-4.172-1.125-1.125c-.162-.15-.198-.333-.11-.546A.467.467 0 015.75 2H9.5c.135 0 .253.05.352.148A.48.48 0 0110 2.5v3.75z"
+              opacity=".5"
+            /></svg
+          >
+        </p>
+      </article>
+    {:else}
+      <article in:fly={{ x: 100 }} id="overview-tab">
+        <p>{overview.content}</p>
+        <p class="source">
+          Source : <a href={overview.source} target="_blank">Wikipedia</a>
+        </p>
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
           ><path
             fill="#FFF"
@@ -23,37 +53,9 @@
             opacity=".5"
           /></svg
         >
-      </p>
-    </article>
-  {:else if current === "surface"}
-    <article id="surface-tab">
-      <p>{geology.content}</p>
-      <p class="source">
-        Source : <a href={geology.source} target="_blank">Wikipedia </a>
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-          ><path
-            fill="#FFF"
-            d="M11.34.66C10.9.22 10.37 0 9.75 0h-7.5C1.63 0 1.1.22.66.66.22 1.1 0 1.63 0 2.25v7.5c0 .62.22 1.15.66 1.59.44.44.97.66 1.59.66h7.5c.62 0 1.15-.22 1.59-.66.44-.44.66-.97.66-1.59v-7.5c0-.62-.22-1.15-.66-1.59zM10 6.25a.467.467 0 01-.305.46.544.544 0 01-.195.04.465.465 0 01-.352-.149L8.023 5.476 3.852 9.648a.481.481 0 01-.352.149.48.48 0 01-.352-.149l-.796-.797a.48.48 0 01-.149-.351.48.48 0 01.149-.352l4.172-4.172-1.125-1.125c-.162-.15-.198-.333-.11-.546A.467.467 0 015.75 2H9.5c.135 0 .253.05.352.148A.48.48 0 0110 2.5v3.75z"
-            opacity=".5"
-          /></svg
-        >
-      </p>
-    </article>
-  {:else}
-    <article id="overview-tab">
-      <p>{overview.content}</p>
-      <p class="source">
-        Source : <a href={overview.source} target="_blank">Wikipedia</a>
-      </p>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-        ><path
-          fill="#FFF"
-          d="M11.34.66C10.9.22 10.37 0 9.75 0h-7.5C1.63 0 1.1.22.66.66.22 1.1 0 1.63 0 2.25v7.5c0 .62.22 1.15.66 1.59.44.44.97.66 1.59.66h7.5c.62 0 1.15-.22 1.59-.66.44-.44.66-.97.66-1.59v-7.5c0-.62-.22-1.15-.66-1.59zM10 6.25a.467.467 0 01-.305.46.544.544 0 01-.195.04.465.465 0 01-.352-.149L8.023 5.476 3.852 9.648a.481.481 0 01-.352.149.48.48 0 01-.352-.149l-.796-.797a.48.48 0 01-.149-.351.48.48 0 01.149-.352l4.172-4.172-1.125-1.125c-.162-.15-.198-.333-.11-.546A.467.467 0 015.75 2H9.5c.135 0 .253.05.352.148A.48.48 0 0110 2.5v3.75z"
-          opacity=".5"
-        /></svg
-      >
-    </article>
-  {/if}
+      </article>
+    {/if}
+  {/key}
 </section>
 
 <style>
@@ -98,12 +100,8 @@
       text-align: left;
       grid-column: 1 / 2;
       order: -1;
-      padding: 0 0 0 2.5rem;
+      padding: 0 69px 0 2.5rem;
     }
-
-    /* article {
-      width: 339px;
-    } */
 
     h1 {
       font-size: 3rem;
@@ -117,10 +115,11 @@
     }
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1250px) {
     section {
       grid-column: 2;
       grid-row: 1;
+      padding: 126px 10.3125rem 2.4375rem 0;
     }
 
     h1 {

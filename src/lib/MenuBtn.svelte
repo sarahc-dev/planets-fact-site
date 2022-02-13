@@ -1,16 +1,27 @@
 <script>
-  export let open = false;
+  import { menuOpen } from "./store";
 
   // Close menu
   $: outerWidth = 0;
   $: if (outerWidth >= 768) {
-    open = false;
+    menuOpen.update((status) => {
+      return false;
+    });
   }
 </script>
 
 <svelte:window bind:outerWidth />
 
-<button class:open type="button" aria-controls="primary-nav" aria-expanded={open} on:click={() => (open = !open)}>
+<button
+  class={$menuOpen ? "open" : ""}
+  type="button"
+  aria-controls="primary-nav"
+  aria-expanded={$menuOpen}
+  on:click={() =>
+    menuOpen.update((status) => {
+      return !status;
+    })}
+>
   <span class="sr-only">Menu</span>
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="17"><g fill="#FFF" fill-rule="evenodd"><path d="M0 0h24v3H0zM0 7h24v3H0zM0 14h24v3H0z" /></g></svg>
 </button>
