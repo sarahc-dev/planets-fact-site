@@ -13,7 +13,7 @@
 
   {#key name}
     {#if currentTab === 2}
-      <article in:fly={{ x: 100 }} id="structure-tab">
+      <div in:fly={{ x: 100 }} id="structure-tab">
         <p>{structure.content}</p>
         <p class="source">
           Source : <a href={structure.source} target="_blank">Wikipedia </a>
@@ -25,9 +25,9 @@
             /></svg
           >
         </p>
-      </article>
+      </div>
     {:else if currentTab === 3}
-      <article in:fly={{ x: 100 }} id="surface-tab">
+      <div in:fly={{ x: 100 }} id="surface-tab">
         <p>{geology.content}</p>
         <p class="source">
           Source : <a href={geology.source} target="_blank">Wikipedia </a>
@@ -39,9 +39,9 @@
             /></svg
           >
         </p>
-      </article>
+      </div>
     {:else}
-      <article in:fly={{ x: 100 }} id="overview-tab">
+      <div in:fly={{ x: 100 }} id="overview-tab">
         <p>{overview.content}</p>
         <p class="source">
           Source : <a href={overview.source} target="_blank">Wikipedia</a>
@@ -53,7 +53,7 @@
             opacity=".5"
           /></svg
         >
-      </article>
+      </div>
     {/if}
   {/key}
 </section>

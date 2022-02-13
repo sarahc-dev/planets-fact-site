@@ -60,7 +60,7 @@
   }
 
   @media (min-width: 768px) {
-    section {
+    div {
       grid-column: 1 / 3;
     }
 
