@@ -5,7 +5,7 @@
   export let currentTab;
 </script>
 
-<section>
+<div>
   {#key name}
     {#if currentTab === 2}
       <img in:slide class={name.toLowerCase()} height="256" width="256" src={images.internal} alt={`${name} - internal`} />
@@ -16,10 +16,10 @@
       <img in:slide class={name.toLowerCase()} height="256" width="256" src={images.planet} alt={name} />
     {/if}
   {/key}
-</section>
+</div>
 
 <style>
-  section {
+  div {
     height: 68.267vw;
     width: 68.267vw;
     max-height: 22rem;
@@ -74,7 +74,7 @@
   }
 
   @media (min-width: 768px) {
-    section {
+    div {
       max-height: 422px;
       max-width: 422px;
       margin: 1.6875rem auto 0.6875rem;
@@ -120,7 +120,7 @@
   }
 
   @media (min-width: 1250px) {
-    section {
+    div {
       height: 46.25626vw;
       width: 46.25626vw;
       max-width: 800px;

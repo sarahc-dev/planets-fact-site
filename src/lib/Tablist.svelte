@@ -33,7 +33,7 @@
   }
 </script>
 
-<section>
+<div>
   <ul role="tablist" on:keydown={changeTabFocus}>
     <li
       class={currentTab === 1 ? "active" : ""}
@@ -80,10 +80,10 @@
       <span class="text"> Geology </span>
     </li>
   </ul>
-</section>
+</div>
 
 <style>
-  section {
+  div {
     border-bottom: 1px solid hsl(var(--white-opaque) / 0.2);
   }
 
@@ -126,7 +126,7 @@
   }
 
   @media (min-width: 768px) {
-    section {
+    div {
       border-bottom: none;
     }
 
@@ -163,7 +163,7 @@
   }
 
   @media (min-width: 1250px) {
-    section {
+    div {
       grid-row: 2;
       grid-column: 2;
     }

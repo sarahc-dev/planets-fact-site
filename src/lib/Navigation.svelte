@@ -108,6 +108,7 @@
 
     a {
       position: relative;
+      font-size: 0.6875rem;
     }
 
     a:hover .decoration {

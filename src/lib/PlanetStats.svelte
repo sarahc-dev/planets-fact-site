@@ -7,19 +7,19 @@
 
 <section class="stats">
   <div class="box">
-    <p class="description">Rotation time</p>
+    <h3 class="description">Rotation time</h3>
     <p class="stat">{rotation}</p>
   </div>
   <div class="box">
-    <p class="description">Revolution time</p>
+    <h3 class="description">Revolution time</h3>
     <p class="stat">{revolution}</p>
   </div>
   <div class="box">
-    <p class="description">Radius</p>
+    <h3 class="description">Radius</h3>
     <p class="stat">{radius}</p>
   </div>
   <div class="box">
-    <p class="description">Average Temp.</p>
+    <h3 class="description">Average Temp.</h3>
     <p class="stat">{temp}</p>
   </div>
 </section>
@@ -44,7 +44,7 @@
     margin-top: 0.5rem;
   }
 
-  .description {
+  h3 {
     font-size: 0.5rem;
     font-weight: 700;
     letter-spacing: 0.727273px;
