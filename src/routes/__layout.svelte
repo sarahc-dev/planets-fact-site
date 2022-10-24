@@ -10,7 +10,6 @@
 </script>
 
 <script>
-  import "../global.css";
   import Header from "$lib/Header.svelte";
 
   export let planets;
